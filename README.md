@@ -1,16 +1,73 @@
-# React + Vite
+# RxNear
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A pharmacy finder that helps users discover nearby pharmacies, view
+pharmacy details, explore locations and routes, and browse emergency
+contact numbers.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Find nearby pharmacies.
+- Search locations and view pharmacy details.
+- View pharmacies on a map and explore routes.
+- Browse emergency numbers by country.
+- Choose between dark and light themes.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- Vite
+- Tailwind CSS
+- Redux Toolkit
+- React Router
+- Leaflet / React Leaflet
+- Geoapify
+- Framer Motion
+- Lucide React
+- emergency-numbers
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+public/
+  rxnear_logo.png
+
+src/
+  animations/
+  components/
+  features/
+    app/
+    pharmacy/
+  hooks/
+  pages/
+  services/
+  constants.js
+  main.jsx
+
+index.html
+package.json
+```
+
+## Getting Started
+
+```bash
+git clone https://github.com/Arman-Saif/RxNear.git
+cd RxNear
+npm install
+```
+
+Create a `.env` file in the project root and add your Geoapify API key:
+
+```env
+VITE_GEOAPIFY_API_KEY=your geoapify api key
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
