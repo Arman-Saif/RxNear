@@ -1,0 +1,867 @@
+/* =====================================================
+   RXNEAR BOOT ANIMATION
+   Arctic Frost + Midnight Blue
+   Total duration: 6.5 seconds
+===================================================== */
+
+/* =====================================================
+   1. THEME VARIABLES
+===================================================== */
+
+.rx-boot {
+  --boot-bg: #edf5f8;
+  --boot-text: #18364a;
+  --boot-muted: #718a9b;
+  --boot-accent: #087f9b;
+
+  --boot-pill-bottom: #20bfaf;
+  --boot-pill-top: #ffffff;
+  --boot-pill-outline: rgba(8, 127, 155, 0.45);
+
+  --boot-logo-surface: #ffffff;
+
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  overflow: hidden;
+
+  background: var(--boot-bg);
+  color: var(--boot-text);
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+
+.rx-boot-light {
+  --boot-bg: #edf5f8;
+  --boot-text: #18364a;
+  --boot-muted: #718a9b;
+  --boot-accent: #087f9b;
+
+  --boot-pill-bottom: #20bfaf;
+  --boot-pill-top: #ffffff;
+  --boot-pill-outline: rgba(8, 127, 155, 0.45);
+
+  --boot-logo-surface: #ffffff;
+}
+
+.rx-boot-dark {
+  --boot-bg: #101827;
+  --boot-text: #f8fafc;
+  --boot-muted: #a7b5c8;
+  --boot-accent: #20c7c2;
+
+  --boot-pill-bottom: #087f9b;
+  --boot-pill-top: #dce7ef;
+  --boot-pill-outline: rgba(32, 199, 194, 0.6);
+
+  --boot-logo-surface: #1b293b;
+}
+
+/* =====================================================
+   2. FULL SCREEN ANIMATION SCENE
+===================================================== */
+
+.rx-boot-scene {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* =====================================================
+   3. PHARMACY POSITION
+===================================================== */
+
+.rx-pharmacy-position {
+  position: absolute;
+
+  top: 50%;
+  left: clamp(12px, 7vw, 110px);
+
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 125px;
+  height: 180px;
+
+  transform: translateY(-50%);
+}
+
+/* =====================================================
+   4. PHARMACY BUILDING
+===================================================== */
+
+.rx-pharmacy-logo {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+
+  opacity: 0;
+
+  transform: translateX(-90px) scale(0.8);
+
+  animation:
+    rx-pharmacy-enter 300ms ease-out 1700ms forwards,
+    rx-pharmacy-exit 1000ms cubic-bezier(0.4, 0, 0.7, 1) 3000ms forwards;
+}
+
+.rx-pharmacy-building {
+  position: relative;
+
+  width: 112px;
+  height: 115px;
+}
+
+/* Pharmacy sign */
+
+.rx-pharmacy-sign {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  border: 2px solid var(--boot-accent);
+  border-radius: 8px;
+
+  background: var(--boot-logo-surface);
+  color: var(--boot-accent);
+
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+
+  transform: translateX(-50%);
+
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease;
+}
+
+/* Flat roof */
+
+.rx-building-roof {
+  position: absolute;
+
+  top: 39px;
+  left: 3px;
+
+  width: 106px;
+  height: 9px;
+
+  border-radius: 3px;
+
+  background: var(--boot-accent);
+}
+
+/* Building facade */
+
+.rx-building-facade {
+  position: absolute;
+
+  top: 48px;
+  left: 8px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+
+  width: 96px;
+  height: 62px;
+
+  border: 2px solid var(--boot-accent);
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+
+  background: var(--boot-logo-surface);
+
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease;
+}
+
+/* Windows */
+
+.rx-building-window {
+  width: 23px;
+  height: 35px;
+
+  border: 2px solid var(--boot-accent);
+  border-radius: 2px 2px 0 0;
+
+  background: color-mix(
+    in srgb,
+    var(--boot-accent) 12%,
+    var(--boot-logo-surface)
+  );
+
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease;
+}
+
+/* Entrance door */
+
+.rx-building-door {
+  position: relative;
+
+  width: 25px;
+  height: 48px;
+
+  border: 2px solid var(--boot-accent);
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+
+  background: color-mix(
+    in srgb,
+    var(--boot-accent) 18%,
+    var(--boot-logo-surface)
+  );
+
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease;
+}
+
+/* Door handle */
+
+.rx-door-handle {
+  position: absolute;
+
+  top: 25px;
+  right: 4px;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: var(--boot-accent);
+}
+
+/* Building base */
+
+.rx-building-base {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 112px;
+  height: 5px;
+
+  border-radius: 5px;
+
+  background: var(--boot-accent);
+}
+
+/* Pharmacy caption */
+
+.rx-pharmacy-caption {
+  color: var(--boot-muted);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2.2px;
+  white-space: nowrap;
+
+  transition: color 250ms ease;
+}
+
+/* =====================================================
+   5. PHARMACY ENTRANCE
+   1.7s - 2.0s
+===================================================== */
+
+@keyframes rx-pharmacy-enter {
+  0% {
+    opacity: 0;
+    transform: translateX(-90px) scale(0.8);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateX(5px) scale(1.04);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* =====================================================
+   6. PHARMACY EXIT
+   3.0s - 4.0s
+
+   Travels completely beyond the right edge.
+===================================================== */
+
+@keyframes rx-pharmacy-exit {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(calc(100vw + 150px)) scale(0.85);
+  }
+}
+
+/* =====================================================
+   7. CENTRAL SCREEN ALIGNMENT
+===================================================== */
+
+.rx-center-stage {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(70vw, 760px);
+  height: 300px;
+
+  min-width: 0;
+
+  transform: translate(-50%, -50%);
+}
+
+/* =====================================================
+   8. ECG ANIMATION
+   Draw: 0s - 1s
+   Shrink: 1s - 1.7s
+===================================================== */
+
+.rx-ecg {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: min(100%, 440px);
+
+  color: var(--boot-accent);
+
+  opacity: 1;
+
+  transform: translate(-50%, -50%);
+
+  animation: rx-ecg-disappear 700ms ease-in-out 1000ms forwards;
+
+  transition: color 250ms ease;
+}
+
+.rx-ecg-svg {
+  display: block;
+
+  width: 100%;
+
+  overflow: visible;
+}
+
+.rx-ecg-line {
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+
+  filter: drop-shadow(0 0 6px var(--boot-accent));
+
+  animation: rx-ecg-draw 1000ms ease-in-out 0ms forwards;
+}
+
+/* ECG draws */
+
+@keyframes rx-ecg-draw {
+  from {
+    stroke-dashoffset: 650;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ECG shrinks away */
+
+@keyframes rx-ecg-disappear {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.65, 0.1);
+  }
+}
+
+/* =====================================================
+   9. DIAGONAL MEDICINE CAPSULE
+   Appear: 1.0s - 1.7s
+   Merge: 2.0s - 3.0s
+===================================================== */
+
+.rx-pill {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+
+  width: 94px;
+  height: 43px;
+
+  overflow: hidden;
+
+  border: 2px solid var(--boot-pill-outline);
+  border-radius: 50px;
+
+  opacity: 0;
+
+  transform: translate(-50%, -50%) rotate(-45deg) scale(0.15);
+
+  box-shadow: 0 12px 35px
+    color-mix(in srgb, var(--boot-accent) 25%, transparent);
+
+  animation:
+    rx-pill-appear 700ms cubic-bezier(0.2, 0.8, 0.3, 1) 1000ms forwards,
+    rx-pill-merge 1000ms cubic-bezier(0.4, 0.1, 0.6, 1) 2000ms forwards;
+
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.rx-pill-white,
+.rx-pill-colour {
+  display: block;
+
+  width: 50%;
+  height: 100%;
+}
+
+.rx-pill-white {
+  background: var(--boot-pill-top);
+
+  transition: background-color 250ms ease;
+}
+
+.rx-pill-colour {
+  background: var(--boot-pill-bottom);
+
+  transition: background-color 250ms ease;
+}
+
+.rx-pill-divider {
+  position: absolute;
+
+  top: -2px;
+  left: 50%;
+
+  width: 2px;
+  height: 48px;
+
+  background: var(--boot-pill-outline);
+
+  transition: background-color 250ms ease;
+}
+
+/* Pill appears */
+
+@keyframes rx-pill-appear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(0.15);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.12);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+}
+
+/* Pill moves into pharmacy */
+
+@keyframes rx-pill-merge {
+  0% {
+    opacity: 1;
+
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+
+  70% {
+    opacity: 0.85;
+
+    transform: translate(
+        calc(-50% - 50vw + clamp(12px, 7vw, 110px) + 62px),
+        -50%
+      )
+      rotate(-45deg) scale(0.65);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: translate(
+        calc(-50% - 50vw + clamp(12px, 7vw, 110px) + 62px),
+        -50%
+      )
+      rotate(-45deg) scale(0.05);
+  }
+}
+
+/* =====================================================
+   10. RXNEAR BRAND REVEAL
+   Title: 4.0s - 5.0s
+===================================================== */
+
+.rx-brand {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translate(-50%, -40%);
+
+  animation: rx-brand-reveal 1000ms ease-out 4000ms forwards;
+}
+
+.rx-brand-title {
+  margin: 0;
+
+  font-size: clamp(48px, 7vw, 76px);
+  font-weight: 850;
+
+  letter-spacing: -4px;
+  line-height: 1;
+}
+
+.rx-brand-rx {
+  color: var(--boot-accent);
+
+  transition: color 250ms ease;
+}
+
+.rx-brand-near {
+  color: var(--boot-text);
+
+  transition: color 250ms ease;
+}
+
+/* Tagline */
+
+.rx-brand-tagline {
+  margin: 13px 0 0;
+
+  color: var(--boot-muted);
+
+  font-size: clamp(12px, 1.6vw, 16px);
+  font-weight: 600;
+
+  letter-spacing: 0.35px;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  animation: rx-tagline-reveal 700ms ease-out 4300ms forwards;
+
+  transition: color 250ms ease;
+}
+
+/* Brand entrance */
+
+@keyframes rx-brand-reveal {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Tagline entrance */
+
+@keyframes rx-tagline-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   11. THREE-DOT LOADING INDICATOR
+   Starts: 5.0s
+   Ends: 6.5s
+===================================================== */
+
+.rx-boot-status {
+  position: absolute;
+
+  bottom: 30px;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  transform: translateX(-50%);
+
+  color: var(--boot-muted);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.35px;
+  white-space: nowrap;
+
+  opacity: 0;
+
+  animation: rx-loading-appear 200ms ease-out 5000ms forwards;
+
+  transition: color 250ms ease;
+}
+
+.rx-loading-dots {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.rx-loading-dots span {
+  display: block;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--boot-accent);
+
+  animation: rx-three-dot-pulse 600ms ease-in-out infinite;
+
+  transition: background-color 250ms ease;
+}
+
+.rx-loading-dots span:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.rx-loading-dots span:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes rx-loading-appear {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Repeating dot animation */
+
+@keyframes rx-three-dot-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0) scale(0.8);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.15);
+  }
+}
+
+/* =====================================================
+   12. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 900px) {
+  .rx-center-stage {
+    width: 75vw;
+  }
+
+  .rx-pharmacy-position {
+    left: 4vw;
+  }
+
+  .rx-ecg {
+    width: min(100%, 380px);
+  }
+}
+
+/* =====================================================
+   13. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 700px) {
+  .rx-pharmacy-position {
+    left: 5px;
+    width: 85px;
+  }
+
+  .rx-pharmacy-building {
+    transform: scale(0.68);
+  }
+
+  .rx-center-stage {
+    width: 82vw;
+    height: 250px;
+  }
+
+  .rx-ecg {
+    width: 100%;
+  }
+
+  .rx-pill {
+    width: 74px;
+    height: 35px;
+  }
+
+  .rx-brand-title {
+    font-size: clamp(40px, 10vw, 60px);
+  }
+
+  .rx-brand-tagline {
+    max-width: 260px;
+    line-height: 1.5;
+  }
+
+  .rx-boot-status {
+    bottom: 24px;
+  }
+}
+
+/* =====================================================
+   14. SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+  .rx-pharmacy-position {
+    left: 0;
+    width: 65px;
+  }
+
+  .rx-pharmacy-building {
+    transform: scale(0.55);
+  }
+
+  .rx-pharmacy-caption {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .rx-center-stage {
+    width: 86vw;
+  }
+
+  .rx-brand-title {
+    font-size: 40px;
+  }
+
+  .rx-brand-tagline {
+    max-width: 220px;
+    font-size: 11px;
+  }
+}
+
+/* =====================================================
+   15. REDUCED MOTION ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .rx-boot *,
+  .rx-boot *::before,
+  .rx-boot *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .rx-ecg,
+  .rx-pill,
+  .rx-pharmacy-logo {
+    display: none;
+  }
+
+  .rx-brand {
+    display: flex;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .rx-brand-title,
+  .rx-brand-tagline {
+    opacity: 1;
+    transform: none;
+  }
+
+  .rx-boot-status {
+    opacity: 1;
+  }
+
+  .rx-loading-dots span {
+    animation: none;
+    opacity: 1;
+  }
+}

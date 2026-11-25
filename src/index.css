@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* RxNear map markers */
+
+.rx-map-marker-wrapper,
+.rx-user-marker-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.rx-map-marker {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 3px solid white;
+  border-radius: 50% 50% 50% 5px;
+  color: white;
+  font-size: 19px;
+  font-weight: 900;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.rx-map-marker span {
+  transform: rotate(45deg);
+}
+
+.rx-user-marker {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: #2563eb;
+  box-shadow: 0 0 0 7px rgba(37, 99, 235, 0.2);
+}
+
+.rx-user-marker span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Leaflet popup theme */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  border-radius: 12px;
+}
+
+.leaflet-popup-content {
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.6;
+}
