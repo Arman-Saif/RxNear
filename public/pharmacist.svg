@@ -1,0 +1,49 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340" fill="none">
+
+  <ellipse cx="150" cy="320" rx="100" ry="12" fill="#38BDF8" opacity=".12"/>
+
+  <!-- Legs -->
+  <path d="M115 255 L105 310 L140 310 L150 260Z" fill="#1E3A8A"/>
+  <path d="M155 255 L165 310 L195 310 L185 255Z" fill="#1E3A8A"/>
+
+  <!-- Shoes -->
+  <path d="M105 303 H143 Q151 303 151 315 H100 Q98 308 105 303Z" fill="#0F172A"/>
+  <path d="M165 303 H195 Q203 306 205 315 H160 Q159 308 165 303Z" fill="#0F172A"/>
+
+  <!-- Coat -->
+  <path d="M95 130 Q150 95 205 130 L220 260 H80Z" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="3"/>
+
+  <!-- Shirt -->
+  <path d="M125 125 L150 155 L175 125 L170 230 H130Z" fill="#38BDF8"/>
+
+  <!-- Coat collar -->
+  <path d="M125 125 L150 155 L137 180 L112 133Z" fill="#DBEAFE"/>
+  <path d="M175 125 L150 155 L164 180 L188 133Z" fill="#DBEAFE"/>
+
+  <!-- Head -->
+  <path d="M108 63 Q108 20 150 20 Q192 20 192 63 L188 100 Q183 125 150 130 Q117 125 112 100Z" fill="#EAB99A"/>
+
+  <!-- Hair -->
+  <path d="M108 70 Q98 22 142 12 Q188 4 197 48 L189 70 Q178 42 155 45 Q132 39 111 78Z" fill="#26364B"/>
+
+  <!-- Face -->
+  <circle cx="134" cy="83" r="3" fill="#26364B"/>
+  <circle cx="168" cy="83" r="3" fill="#26364B"/>
+  <path d="M140 106 Q151 111 162 104" stroke="#9A5C54" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Thinking hand -->
+  <path d="M193 150 Q215 125 205 93 Q198 75 183 86 Q174 95 184 110 L174 130Z" fill="#EAB99A"/>
+
+  <!-- Other arm -->
+  <path d="M92 145 Q70 180 80 205 L105 220 L115 190 L110 150Z" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="3"/>
+
+  <!-- Stethoscope -->
+  <path d="M132 160 Q120 205 150 215 Q180 205 168 160" stroke="#0D9488" stroke-width="4" fill="none"/>
+  <circle cx="150" cy="218" r="7" fill="#0D9488"/>
+
+  <!-- Pocket -->
+  <rect x="169" y="190" width="30" height="35" rx="4" fill="#DBEAFE"/>
+  <path d="M178 207 H190 M184 201 V213" stroke="#2563EB" stroke-width="3"/>
+
+</svg>
