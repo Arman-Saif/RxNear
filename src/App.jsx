@@ -9,7 +9,7 @@ import Emergency from "./pages/Emergency";
 import Header from "./components/Header";
 import PharmacyList from "./components/PharmacyList";
 import DetailedPharmacy from "./components/DetailedPharmecy";
-import EmergencyFAB from "./components/EmergencyFAB.jsx";
+import EmergencyFAB from "./components/EmergencyFab.jsx";
 import AppFooter from "./components/AppFooter";
 
 export default function App() {
